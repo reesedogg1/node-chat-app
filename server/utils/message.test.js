@@ -20,11 +20,12 @@ describe('generateLocationMessage', () => {
     var from = 'Me';
     var lat = 10;
     var long = 20;
+    var url ="https://www.google.com/maps?q=10,20";
     
     var res = generateLocationMessage(from,lat,long);
     
     expect(res.createdAt).toBeA("number");
     expect(res.from).toBe(from);
-    expect(res.url).toBe("https://www.google.com/maps?q=10,20");   
+    expect(res.url).toBe(url);   
   });
 });
