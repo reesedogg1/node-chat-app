@@ -1,17 +1,20 @@
 const expect = require('expect');
-const {generateMessage, generateLocationMessage} = require('./message');
+const {
+  generateMessage,
+  generateLocationMessage
+} = require('./message');
 
 describe('generateMessage', () => {
   it('should generate correct message object', () => {
     var from = "Maurice";
     var text = "Hello!";
-    
-    var res = generateMessage(from,text);
-    
+
+    var res = generateMessage(from, text);
+
     expect(res.from).toBe(from);
     expect(res.text).toBe(text);
     expect(res.createdAt).toBeA("number");
-    
+
   });
 });
 
@@ -20,12 +23,12 @@ describe('generateLocationMessage', () => {
     var from = 'Me';
     var lat = 10;
     var long = 20;
-    var url ="https://www.google.com/maps?q=10,20";
-    
-    var res = generateLocationMessage(from,lat,long);
-    
+    var url = "https://www.google.com/maps?q=10,20";
+
+    var res = generateLocationMessage(from, lat, long);
+
     expect(res.createdAt).toBeA("number");
     expect(res.from).toBe(from);
-    expect(res.url).toBe(url);   
+    expect(res.url).toBe(url);
   });
 });
